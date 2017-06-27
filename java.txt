@@ -1,0 +1,96 @@
+package com.adix.scientificcalculator;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class Main2Activity extends AppCompatActivity {
+    private TextView e1;
+    TextView t1;
+    private String display="";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main2);
+
+        e1=(TextView) findViewById(R.id.et);
+        t1=(TextView)findViewById(R.id.tv);
+        e1.setText(display);
+    }
+    public void updateScreen(){
+        t1.setText(display);
+        e1.setText(display);
+    }
+    public void updateScreenx(){
+        e1.setText(display);
+
+    }
+    public void onClickSine(View view){
+        double n,m;
+        n=Double.parseDouble(e1.getText().toString());
+        m=Math.sin(n);
+        t1.setText("Sin\t\n"+m);
+    }
+    public void onClickCosine(View view){
+        double n,m;
+        n=Double.parseDouble(e1.getText().toString());
+        m=Math.cos(n);
+        t1.setText("Cosine\t\n"+m);
+    }
+    public void onClickTan(View view){
+        double n,m;
+        n=Double.parseDouble(e1.getText().toString());
+        m=Math.tan(n);
+        t1.setText("Tan\t\n"+m);
+    }
+    public void onClickLog(View view){
+        double n,m;
+        n=Double.parseDouble(e1.getText().toString());
+        m=Math.log(n);
+        t1.setText("Log\t\n"+m);
+    }
+    public void onClickExp(View view){
+        double n,m;
+        n=Double.parseDouble(e1.getText().toString());
+        m=Math.exp(n);
+        t1.setText("EXPONENT\t\n"+m);
+    }
+    public void onClickSquare(View view){
+        double n,m;
+        n=Double.parseDouble(e1.getText().toString());
+        m=n*n;
+        t1.setText("Square\t\n"+m);
+    }
+    public void onClickCube(View view){
+        double n,m;
+        n=Double.parseDouble(e1.getText().toString());
+        m=n*n*n;
+        t1.setText("Cube\t\n"+m);
+    }
+    public void onClickSqroot(View view){
+        double n,m;
+        n=Double.parseDouble(e1.getText().toString());
+        m=Math.sqrt(n);
+        t1.setText("SquareRoot\t\n"+m);
+    }
+    /*
+    We will create a method to show the numbers
+     */
+    public void onNumberClick(View v){
+        Button b=(Button)v;
+        display+=b.getText();
+        updateScreenx();
+    }
+    public void clear(){
+        //method to clear the screen
+        display="";
+    }
+    public void onClickClear(View v){
+        clear();
+        updateScreen();
+    }
+}
